@@ -3,7 +3,7 @@ import java.util.stream.Collectors;
 public class AddressBook {
     static Scanner scanner = new Scanner(System.in);
     static Map<String, List<Contacts>> contactBook = new HashMap<>();
-    AddressBookIOService addressBookIOService = new AddressBookIOService();
+    static AddressBookIOService addressBookIOService = new AddressBookIOService();
     public void showMenu() {
         try {
             while (true) {
@@ -28,6 +28,7 @@ public class AddressBook {
                         else
                             createContact(contactList, contactBook, newBook);
                         addressBookIOService.writeContactDetails(contactBook);
+                        addressBookIOService.writeContactDetailsInCSV(contactBook);
                         break;
 
                     case 2:
